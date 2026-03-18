@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conecta_rh</title>
+  <link href="../../public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../public/icon/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <script src="../../public/js/chart.js"></script>
+  <style>
+    body {
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      z-index: -1;
+    }
+    .sidebar {
+      width: 260px;
+      height: 100vh;
+      color: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+      background-color: #f8f9fa;
+    }
+    @media (max-width: 992px) {
+      .sidebar {
+        transform: translateX(-100%);
+      }
+      .sidebar.show {
+        transform: translateX(0);
+      }
+    }
+    .content {
+      margin-left: 260px;
+      padding: 20px;
+    }
+
+    @media (max-width: 992px) {
+      .content {
+        margin-left: 0;
+      }
+    }
+    .topbar, .mobile-navbar {
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-custom {
+      border: none;
+      color: white;
+      border-radius: 12px;
+    }
+    canvas {
+      max-height: 250px !important;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div id="sidebar" class="sidebar d-flex flex-column p-3 shadow-sm">
+  <ul class="nav flex-column gap-2">
+    <li>
+       <a href="dashboard.html" class="text-secondary d-block py-1" style="text-decoration: none;">
+      <button class="btn   text-secondary w-100 text-start" data-bs-toggle="collapse" data-bs-target="#faltasMenu">
+        <i class="bi bi-person-x-fill me-2"></i> Dashbord
+      </button>
+       </a>
+    </li>
+
+    <li>
+      <a href="agendamento_receiv.html" class="btn text-secondary w-100 text-start">
+        <i class="bi bi-calendar-check me-2"></i> Agendamentos
+      </a>
+    </li>
+    
+    <li>
+      <a href="send.html" class="btn btn-primary w-100 text-start">
+        <i class="bi bi-megaphone fs-5 me-2"></i> Publicar
+      </a>
+    </li>
+    <li>
+      <a href="configuracoes.html" class="btn text-secondary w-100 text-start">
+        <i class="bi bi-gear-fill me-2"></i> Configurações
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- Navbar -->
+<div class="content">
+  <div class="topbar d-flex justify-content-between align-items-center shadow-lg">
+    <div class="d-flex align-items-left justify-content-left w-100">
+      <i class="bi bi-list mt-2 me-2 fs-4 cursor-pointer" id="btnMenu"></i>
+    </div>
+    <div class="d-flex align-items-center">
+      <div class="position-relative d-inline-block me-4 mt-2">
+        <i class="bi bi-bell fs-5 text-primary"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          1
+          <span class="visually-hidden">notificações não lidas</span>
+        </span>
+      </div>
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="../../public/icon/user.png" class="rounded-circle me-2" width="25px" alt="User">
+          <span class="text-primary fw-semibold">Administrador</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
+        
+          <li><a class="dropdown-item text-danger" href="login.html"><i class="bi bi-box-arrow-right me-2"></i>Terminar Sessão</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<div class="container card-custom p-4">
+ <div class="card card-custom p-4">
+  <h2 class="text-primary"><i class="bi bi-megaphone text-primary me-3"></i>Publicar</h2>
+  <form action="">
+    <label for="">Imagem</label>
+    <input type="file" class="form-control">
+    <label for="">descrição</label>
+    <textarea name="" id="" class="form-control" placeholder="Digite uma pequena descrição"></textarea>
+    <button class="btn btn-primary mt-3"><i class="bi bi-uploads "></i>Publicar</button>
+  </form>
+</div>
+</div>
+
+
+
+<script src="../../public/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
