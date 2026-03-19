@@ -1,3 +1,3 @@
 <?php
-header("Location: src/views/login.html");
+header("Location: /src/views/public/agendar.php");
 ?>
