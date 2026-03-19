@@ -21,6 +21,8 @@ try {
 } catch (Throwable $exception) {
     $postsError = 'Publicações indisponíveis no momento.';
 }
+
+$totalPublicacoes = count($publicacoes);
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -29,19 +31,33 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Comunicados - Agendamento</title>
   <link href="../../../public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../public/css/app.css" rel="stylesheet">
   <link href="../../../public/icon/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body class="bg-body-tertiary">
 <div class="container py-4 py-md-5">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="h4 mb-0 text-primary">Comunicados da administração</h1>
-    <div class="d-flex gap-2">
-      <a class="btn btn-primary btn-sm" href="/src/views/public/agendar.php">
-        <i class="bi bi-calendar-check"></i> Fazer agendamento
-      </a>
-      <a class="btn btn-outline-secondary btn-sm" href="/src/views/auth/login.php">
-        <i class="bi bi-person-lock"></i> Área administrativa
-      </a>
+  <div class="card border-0 shadow-sm mb-4">
+    <div class="card-body p-4 p-md-5">
+      <div class="d-flex flex-wrap justify-content-between align-items-start gap-3">
+        <div>
+          <span class="badge text-bg-primary mb-2">Área pública</span>
+          <h1 class="h3 mb-2 text-primary">Comunicados da administração</h1>
+          <p class="text-muted mb-0">Acompanhe os avisos mais recentes e faça seu agendamento online em poucos passos.</p>
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-primary btn-sm" href="/src/views/public/agendar.php">
+            <i class="bi bi-calendar-check"></i> Fazer agendamento
+          </a>
+          <a class="btn btn-outline-secondary btn-sm" href="/src/views/auth/login.php">
+            <i class="bi bi-person-lock"></i> Área administrativa
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-3 text-secondary small d-flex align-items-center gap-2">
+        <i class="bi bi-megaphone"></i>
+        <?= $totalPublicacoes ?> publicação(ões) disponível(is)
+      </div>
     </div>
   </div>
 
@@ -57,10 +73,16 @@ try {
         <div class="row g-3">
           <?php foreach ($publicacoes as $post): ?>
             <div class="col-12">
-              <div class="border rounded p-3">
-                <h2 class="h6 mb-1"><?= htmlspecialchars((string) $post['titulo'], ENT_QUOTES, 'UTF-8') ?></h2>
-                <small class="text-muted d-block mb-2">
-                  Por <?= htmlspecialchars((string) $post['autor_nome'], ENT_QUOTES, 'UTF-8') ?> em
+              <div class="border rounded-4 p-3 p-md-4 bg-white">
+                <div class="d-flex justify-content-between align-items-start gap-3 mb-2">
+                  <h2 class="h5 mb-0"><?= htmlspecialchars((string) $post['titulo'], ENT_QUOTES, 'UTF-8') ?></h2>
+                  <span class="badge text-bg-light border">Comunicado</span>
+                </div>
+                <small class="text-muted d-block mb-3">
+                  <i class="bi bi-person"></i>
+                  <?= htmlspecialchars((string) $post['autor_nome'], ENT_QUOTES, 'UTF-8') ?>
+                  <span class="mx-1">•</span>
+                  <i class="bi bi-clock"></i>
                   <?= htmlspecialchars((string) $post['created_at'], ENT_QUOTES, 'UTF-8') ?>
                 </small>
 
@@ -73,7 +95,7 @@ try {
                   >
                 <?php endif; ?>
 
-                <p class="mb-0"><?= nl2br(htmlspecialchars((string) $post['conteudo'], ENT_QUOTES, 'UTF-8')) ?></p>
+                <p class="mb-0 text-secondary"><?= nl2br(htmlspecialchars((string) $post['conteudo'], ENT_QUOTES, 'UTF-8')) ?></p>
               </div>
             </div>
           <?php endforeach; ?>

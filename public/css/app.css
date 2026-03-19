@@ -1,0 +1,77 @@
+:root {
+  --app-surface: #ffffff;
+  --app-soft-bg: #f3f6fb;
+  --app-border: #e8edf5;
+}
+
+body {
+  background: radial-gradient(circle at top right, #eef4ff 0%, #f7f9fc 45%, #f3f6fb 100%);
+  color: #1f2937;
+}
+
+.container {
+  max-width: 1120px;
+}
+
+.card {
+  border-radius: 1rem;
+  border: 1px solid var(--app-border) !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06) !important;
+}
+
+.card .card-body {
+  padding: 1.25rem;
+}
+
+.btn {
+  border-radius: 0.7rem;
+  font-weight: 500;
+}
+
+.btn-sm {
+  border-radius: 0.6rem;
+}
+
+.form-control,
+.form-select,
+.input-group-text,
+textarea {
+  border-radius: 0.65rem !important;
+  border-color: #dbe3ef;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+  border-color: #86b7fe;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+}
+
+.table thead th {
+  font-weight: 600;
+  color: #4b5563;
+  border-bottom-width: 1px;
+}
+
+.table td,
+.table th {
+  vertical-align: middle;
+}
+
+.alert {
+  border-radius: 0.75rem;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.01em;
+}
+
+.badge {
+  border-radius: 0.6rem;
+}
+
+@media (max-width: 768px) {
+  .card .card-body {
+    padding: 1rem;
+  }
+}

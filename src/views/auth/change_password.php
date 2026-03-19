@@ -16,6 +16,7 @@ unset($_SESSION['password_change_error']);
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Trocar Senha - Agendamento</title>
   <link href="../../../public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../public/css/app.css" rel="stylesheet">
   <link href="../../../public/icon/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body class="bg-light">

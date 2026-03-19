@@ -58,20 +58,27 @@ try {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fazer Agendamento</title>
   <link href="../../../public/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../../public/css/app.css" rel="stylesheet">
   <link href="../../../public/icon/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
 </head>
-<body class="bg-light">
+<body class="bg-body-tertiary">
 <div class="container py-4 py-md-5">
-  <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="h4 mb-0 text-primary">Fazer agendamento</h1>
-    <a class="btn btn-outline-secondary btn-sm" href="/src/views/public/index.php">
-      <i class="bi bi-arrow-left"></i> Ver comunicados
-    </a>
+  <div class="card border-0 shadow-sm mb-4">
+    <div class="card-body p-4 p-md-5 d-flex flex-wrap justify-content-between align-items-start gap-3">
+      <div>
+        <span class="badge text-bg-primary mb-2">Agendamento online</span>
+        <h1 class="h3 mb-2 text-primary">Fazer agendamento</h1>
+        <p class="text-muted mb-0">Preencha o formulário e aguarde o retorno da administração.</p>
+      </div>
+      <a class="btn btn-outline-secondary btn-sm" href="/src/views/public/index.php">
+        <i class="bi bi-arrow-left"></i> Ver comunicados
+      </a>
+    </div>
   </div>
 
   <div class="card border-0 shadow-sm">
-    <div class="card-body p-4">
-      <h2 class="h5 mb-3">Reserve sua vaga</h2>
+    <div class="card-body p-4 p-md-5">
+      <h2 class="h5 mb-2">Reserve sua vaga</h2>
       <p class="text-muted mb-4">Preencha os dados abaixo para concluir o agendamento.</p>
 
       <?php if ($message): ?>
@@ -89,17 +96,26 @@ try {
       <form method="post" class="row g-3">
         <div class="col-md-6">
           <label class="form-label">Nome completo</label>
-          <input class="form-control" name="nome_cliente" value="<?= htmlspecialchars((string) ($_POST['nome_cliente'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" required>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-person"></i></span>
+            <input class="form-control" name="nome_cliente" value="<?= htmlspecialchars((string) ($_POST['nome_cliente'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" required>
+          </div>
         </div>
 
         <div class="col-md-6">
           <label class="form-label">Contacto (telefone/WhatsApp)</label>
-          <input class="form-control" name="contato" value="<?= htmlspecialchars((string) ($_POST['contato'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" required>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+            <input class="form-control" name="contato" value="<?= htmlspecialchars((string) ($_POST['contato'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" required>
+          </div>
         </div>
 
         <div class="col-md-6">
           <label class="form-label">Serviço/Curso</label>
-          <input class="form-control" name="servico" value="<?= htmlspecialchars((string) ($_POST['servico'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" required>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-journal-text"></i></span>
+            <input class="form-control" name="servico" value="<?= htmlspecialchars((string) ($_POST['servico'] ?? ''), ENT_QUOTES, 'UTF-8') ?>" required>
+          </div>
         </div>
 
         <div class="col-md-3">
