@@ -19,6 +19,16 @@ if ($email === '' || $senha === '') {
 
 try {
     $db = (new DatabaseConnection())->conectar();
+
+    $resCount = $db->query('SELECT COUNT(*) AS total FROM usuarios');
+    $totalUsuarios = $resCount ? (int) ($resCount->fetch_assoc()['total'] ?? 0) : 0;
+
+    if ($totalUsuarios === 0) {
+        $_SESSION['login_error'] = 'Crie a conta administrativa inicial para entrar no sistema.';
+        header('Location: /src/views/auth/register.php');
+        exit;
+    }
+
     $stmt = $db->prepare('SELECT id, nome, email, senha FROM usuarios WHERE email = ? LIMIT 1');
 
     if (!$stmt) {

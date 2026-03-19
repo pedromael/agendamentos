@@ -42,22 +42,3 @@ CREATE TABLE IF NOT EXISTS publicacoes (
     ON DELETE SET NULL
     ON UPDATE CASCADE
 );
-
-INSERT INTO usuarios (nome, email, senha)
-SELECT 'Administrador', 'admin@local.test', '$2y$10$iVyUgRbcAFz/TxqdGn5R5.mcpa5QetHQobUM5SNjVmbSopjXGlyQO'
-WHERE NOT EXISTS (
-  SELECT 1 FROM usuarios WHERE email = 'admin@local.test'
-);
-
-INSERT INTO publicacoes (usuario_id, autor_nome, titulo, conteudo, imagem_url)
-SELECT
-  u.id,
-  u.nome,
-  'Bem-vindo ao agendamento online',
-  'Consulte as informações publicadas pela administração e realize o seu agendamento nesta página.',
-  NULL
-FROM usuarios u
-WHERE u.email = 'admin@local.test'
-  AND NOT EXISTS (
-    SELECT 1 FROM publicacoes WHERE titulo = 'Bem-vindo ao agendamento online'
-  );
