@@ -9,7 +9,7 @@
 				"-S",
 				"127.0.0.1:8000",
 				"-t",
-				"agendamento.com"
+				"."
 			],
 			"isBackground": true,
 			"group": "build"
