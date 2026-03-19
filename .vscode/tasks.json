@@ -1,0 +1,18 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run PHP server (agendamento)",
+			"type": "shell",
+			"command": "php",
+			"args": [
+				"-S",
+				"127.0.0.1:8000",
+				"-t",
+				"agendamento.com"
+			],
+			"isBackground": true,
+			"group": "build"
+		}
+	]
+}
